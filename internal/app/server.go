@@ -3,16 +3,16 @@ package app
 import (
 	"net/http"
 
-	"github.com/Fiensola/notification-service/pkg/logger"
 	"github.com/gin-gonic/gin"
 )
 
-func StartServer(addr string) error {
+func GetServer(addr string) *http.Server {
 	router := getRouter()
 
-	logger.SugaredLogger.Info("Starting HTTPS server on ", addr)
-	
-	return http.ListenAndServe(addr, router)
+	return &http.Server{
+		Addr:    addr,
+		Handler: router,
+	}
 }
 
 func getRouter() *gin.Engine {

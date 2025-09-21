@@ -1,4 +1,4 @@
-module github.com/Fiensola/notification-service
+module github.com/fiensola/notification-service
 
 go 1.25.1
 
